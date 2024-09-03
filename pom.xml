@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.systemengineering</groupId>
+    <artifactId>TP1ParadigmaYLenguajesDeProgramacionII</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>TP 1 Paradigma y Lenguajes de Programción II</name>
+    <description>El unico proposito de este proyecto es "Aprobar la Materia" 😎</description>
+    <organization>
+        <name>Universidad de la Cuenca de la Plata - Sede Posadas</name>
+        <url>https://www.ucp.edu.ar/</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>José Fernando Usui</name>
+            <email>joesesilvae@gmail.com</email>
+            <organization>Dev Usui-San</organization>
+            <organizationUrl>https://github.com/DevUsuiSama</organizationUrl>
+            <roles>
+                <role>system designer</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>2</id>
+            <name>Luciana Rojas</name>
+            <roles>
+                <role>system designer</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</name>
+            <url>https://creativecommons.org/licenses/by-nc-sa/4.0/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE220</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <exec.mainClass>com.systemengineering.tp1paradigmaylenguajesdeprogramacionii.TP1ParadigmaYLenguajesDeProgramacionII</exec.mainClass>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.10.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    <excludeTransitive>false</excludeTransitive> 
+                    <stripVersion>false</stripVersion>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.systemengineering.tp1paradigmaylenguajesdeprogramacionii.TP1ParadigmaYLenguajesDeProgramacionII</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
