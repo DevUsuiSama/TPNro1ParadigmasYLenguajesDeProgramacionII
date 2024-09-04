@@ -132,23 +132,25 @@ public class ListarAlumnosController {
             for (Alumno alumno : alumnos) {
                 if (alumno.verCarreraMatriculado() != null) {
                     if (alumno.verMateriasInscriptas() != null) {
-                        listarAlumnos
-                                .append(alumno.getNroLegajo())
-                                .append(" - ")
-                                .append(alumno.getNombre())
-                                .append(" ")
-                                .append(alumno.getApellido())
-                                .append(" | Materia: ")
-                                .append(alumno.verMateriasInscriptas().stream().filter(data -> {
-                                    String materiaFormateado = "Nombre: " + data.getNombre() + " | Anio: " + data.getAnio() + " | Profesor: " + data.getProfesor().getNombre() + " " + data.getProfesor().getApellido();
-                                    return materiaFormateado.equals(comboMaterias.getSelectedItem());
-                                }).findFirst().orElse(null).getNombre())
-                                .append(" | Situación Final: ")
-                                .append(alumno.verMateriasInscriptas().stream().filter(data -> {
-                                    String materiaFormateado = "Nombre: " + data.getNombre() + " | Anio: " + data.getAnio() + " | Profesor: " + data.getProfesor().getNombre() + " " + data.getProfesor().getApellido();
-                                    return materiaFormateado.equals(comboMaterias.getSelectedItem());
-                                }).findFirst().orElse(null).getSituacion())
-                                .append("\n");
+                        for (Materia materiaFiltro : alumno.verMateriasInscriptas()) {
+                            String materiaFormateado = "Nombre: " + materiaFiltro.getNombre()
+                                    + " | Anio: " + materiaFiltro.getAnio()
+                                    + " | Profesor: " + materiaFiltro.getProfesor().getNombre() + " " + materiaFiltro.getProfesor().getApellido();
+
+                            if (materiaFormateado.equals(comboMaterias.getSelectedItem())) {
+                                listarAlumnos
+                                        .append(alumno.getNroLegajo())
+                                        .append(" - ")
+                                        .append(alumno.getNombre())
+                                        .append(" ")
+                                        .append(alumno.getApellido())
+                                        .append(" | Materia: ")
+                                        .append(materiaFiltro.getNombre())
+                                        .append(" | Situación Final: ")
+                                        .append(materiaFiltro.getSituacion())
+                                        .append("\n");
+                            }
+                        }
                     }
                 }
             }
