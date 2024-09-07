@@ -46,11 +46,10 @@ public class MenuView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
+        setBounds(new java.awt.Rectangle(50, 50, 800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
         setSize(new java.awt.Dimension(800, 500));
 
-        jPanelMenu.setMinimumSize(new java.awt.Dimension(800, 400));
-        jPanelMenu.setPreferredSize(new java.awt.Dimension(800, 400));
         jPanelMenu.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
@@ -161,7 +160,7 @@ public class MenuView extends javax.swing.JFrame {
             .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(814, 507));
+        setSize(new java.awt.Dimension(800, 500));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
