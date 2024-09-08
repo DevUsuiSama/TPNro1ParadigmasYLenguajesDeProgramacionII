@@ -48,6 +48,15 @@
         <exec.mainClass>com.systemengineering.tp1paradigmaylenguajesdeprogramacionii.TP1ParadigmaYLenguajesDeProgramacionII</exec.mainClass>
     </properties>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java/com/systemengineering/tp1paradigmaylenguajesdeprogramacionii/views</directory>
+                <targetPath>com/systemengineering/tp1paradigmaylenguajesdeprogramacionii/views</targetPath>
+                <includes>
+                    <include>**/*.png</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

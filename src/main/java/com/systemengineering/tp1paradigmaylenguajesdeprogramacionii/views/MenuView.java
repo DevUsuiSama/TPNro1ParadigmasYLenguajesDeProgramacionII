@@ -16,12 +16,26 @@ public class MenuView extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
-     * 
+     *
      * @param menuController
      */
     public MenuView(MenuController menuController) {
         this.menuController = menuController;
         initComponents();
+    }
+
+    public javax.swing.ImageIcon obtenerImagenUniversidad() {
+        try {
+            java.awt.image.BufferedImage originalImage = javax.imageio.ImageIO.read(
+                    MenuView.class.getResourceAsStream("images/universidad.png")
+            );
+            java.awt.Image resizedImage = originalImage.getScaledInstance(500, 170, java.awt.Image.SCALE_SMOOTH);
+            javax.swing.ImageIcon icon = new javax.swing.ImageIcon(resizedImage);
+            return icon;
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -33,6 +47,7 @@ public class MenuView extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanelMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         buttonPanel = new javax.swing.JPanel();
@@ -49,23 +64,31 @@ public class MenuView extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(50, 50, 800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
         setSize(new java.awt.Dimension(800, 500));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelMenu.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelMenu.setAutoscrolls(true);
         jPanelMenu.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setIcon(obtenerImagenUniversidad());
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menú");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(40, 40, 100, 40);
+        gridBagConstraints.insets = new java.awt.Insets(60, 40, 50, 40);
         jPanelMenu.add(jLabel1, gridBagConstraints);
 
         buttonPanel.setLayout(new java.awt.BorderLayout());
 
+        btnMatricular.setBackground(new java.awt.Color(102, 102, 102));
         btnMatricular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnMatricular.setText("Matricular Alumnos a una Carrera");
         btnMatricular.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -83,11 +106,12 @@ public class MenuView extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanelMenu.add(buttonPanel, gridBagConstraints);
 
         buttonPanel2.setLayout(new java.awt.BorderLayout());
 
+        btnInscribir.setBackground(new java.awt.Color(102, 102, 102));
         btnInscribir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnInscribir.setText("Inscribir Alumno a una Materia");
         btnInscribir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,11 +128,12 @@ public class MenuView extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanelMenu.add(buttonPanel2, gridBagConstraints);
 
         buttonPanel3.setLayout(new java.awt.BorderLayout());
 
+        btnSituacionMateria.setBackground(new java.awt.Color(102, 102, 102));
         btnSituacionMateria.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnSituacionMateria.setText("Cargar Situacion Final de Materia");
         btnSituacionMateria.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,11 +150,12 @@ public class MenuView extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanelMenu.add(buttonPanel3, gridBagConstraints);
 
         buttonPanel4.setLayout(new java.awt.BorderLayout());
 
+        btnVerAlumnos.setBackground(new java.awt.Color(102, 102, 102));
         btnVerAlumnos.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnVerAlumnos.setText("Ver Alumnos (Segun carrera y materia)");
         btnVerAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,19 +172,12 @@ public class MenuView extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 5);
         jPanelMenu.add(buttonPanel4, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jScrollPane1.setViewportView(jPanelMenu);
+
+        getContentPane().add(jScrollPane1);
 
         setSize(new java.awt.Dimension(800, 500));
         setLocationRelativeTo(null);
@@ -205,7 +224,7 @@ public class MenuView extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
 
@@ -226,6 +245,7 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JPanel buttonPanel4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-    
+
 }

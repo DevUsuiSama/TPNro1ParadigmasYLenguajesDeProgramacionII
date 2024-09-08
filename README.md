@@ -10,7 +10,11 @@ El propósito de este proyecto es la de ver las distintas relaciones que puede t
 
 ## Estructura en UML (Diagrama de Clases)
 
-![diagramauml](image/TP1-ParadigmasYLenguajesDeProgramacionII.png)
+![diagramauml](images/TP1-ParadigmasYLenguajesDeProgramacionII.png)
+
+## Programa en Ejecución
+
+![app](images/app.png)
 
 ## Lenguaje
 
